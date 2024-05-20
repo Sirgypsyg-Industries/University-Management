@@ -28,8 +28,9 @@ public class University {
 			user = student;
 		}
 
-		System.out.println("User " + fullName + " registered successfully");
-		return user;
+		System.out.println("User " + fullName + " registered successfully. Your index is " + index);
+		++index;
+		return true;
 	}
 
 	
