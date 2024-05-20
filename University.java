@@ -15,10 +15,23 @@ public class University {
 	public ArrayList<Department> departments;
 	public ArrayList<Student> students;
 	public String name;
-	public boolean reg(boolean isTeacher, String fullName, String password, String index, Department department) {
+	public int index = 1111;
+	public boolean reg(boolean isTeacher, String fullName, String password, Department department) {
 		
+		if (isTeacher) {
+			department.addTeacher(fullName, password, Integer.toString(index));
+		}
+		else {
+			Student student = new Student(fullName, password, Integer.toString(index));
+			students.add(student);
+		}
+
+		System.out.println("User " + fullName + " registered successfully");
+		++index;
 		return true;
 	}
+
+	
 	
 	public User logIn(boolean isTeacher, String password, String index, String departmentName) {
 		
