@@ -21,7 +21,7 @@ public class Department {
 				return profesors.get(i);
 			}
 		}
-		return new Professor(password, password, index, null);	 // placehodler
+		return null;	 // placehodler
 	}
 	
 	public Department(String name) {

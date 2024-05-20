@@ -14,13 +14,12 @@ import java.util.ArrayList;
 public class Student extends User {
 	public Student(String fullName, String password, String index) {
 		super(fullName, password, index);
-		//TODO Auto-generated constructor stub
 	}
 
 	public ArrayList<Course> classes;
 	public University university;
 	public void registerOnCourse(String nameOfCourse, String nameOfDepartment, Professor professor, String password) {
-	
+		
 	}
 	
 	public void viewGrades() {

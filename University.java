@@ -30,6 +30,21 @@ public class University {
 	}
 	
 	public University(String name) {
-		
-	}
+        this.name = name;
+        departments = new ArrayList<Department>();
+
+        // Create Department objects
+        Department department1 = new Department("Mathematics");
+        Department department2 = new Department("Computer Science");
+        Department department3 = new Department("Physics");
+		Department department4 = new Department("Neurobiology");
+		Department department5 = new Department("cosmology");
+
+        // Add Department objects to departments ArrayList
+        departments.add(department1);
+        departments.add(department2);
+        departments.add(department3);
+		departments.add(department4);
+		departments.add(department5);
+    }
 }
