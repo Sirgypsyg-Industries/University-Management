@@ -14,16 +14,29 @@ import java.util.ArrayList;
 public class Professor extends User {
 	public ArrayList<Course> courses;
 	public Department department;
+
 	public void addCourse(String name, String password) {
-	
+		Course newCourse = new Course(name, this, password);
+		courses.add(newCourse);
 	}
 	
 	public void addMaterials(String nameOfFile, String nameOfCourse) {
-	
+		int size = courses.size();
+		for(int i = 0; i < size; ++i){
+			if(courses.get(i).name == nameOfCourse){
+				courses.get(i).materials.add(nameOfFile);
+				return;
+			}
+		}
 	}
 	
-	public void writeGrade(String index, Grade grade) {
-	
+	public void writeGrade(String index, Grade grade, String nameOfCourse) {
+		for(int i = 0; i < courses.size(); ++i){
+			if(courses.get(i).name == nameOfCourse){
+				courses.get(i).grades.put(index, grade);
+				return;
+			}
+		}
 	}
 	
 	public Professor(String fullName, String password, String index, Department department) {
