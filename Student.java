@@ -45,7 +45,7 @@ public class Student extends User {
 		boolean studentFound = false;
 
 		for (Course course : classes) {
-			Grade grade = course.grades.get(Integer.toString(this.getIndex()));
+			Grade grade = course.grades.get(this.getIndex());
 
 			if (grade != null) {
 				studentFound = true;
@@ -55,7 +55,7 @@ public class Student extends User {
 		}
 
 		if (!studentFound) {
-			stringBuilder.append("No grades found for student ID: ").append(this.getIndex()).append("\n");
+			stringBuilder.append("No grade found for student ID: ").append(this.getIndex()).append("\n");
 		}
 		System.out.println(stringBuilder.toString());
 	}
