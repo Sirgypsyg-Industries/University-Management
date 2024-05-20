@@ -3,7 +3,9 @@ public class Main{
         University university = new University("UMCS");
         User user;
         while(true){
+            while(user != null){
 
+            }
         }
     }
 }
