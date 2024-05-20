@@ -36,7 +36,7 @@ public class Student extends User {
 							 .append(" - Grade: ").append(grade.name()).append("\n");
 			}
 		}
-	
+
 		if (!studentFound) {
 			stringBuilder.append("No grades found for student ID: ").append(this.getIndex()).append("\n");
 		}

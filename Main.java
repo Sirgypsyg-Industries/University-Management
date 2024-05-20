@@ -1,10 +1,6 @@
 import java.util.Scanner;
 
 
-
-
-
-
 public class Main{
     public static void main(String[] args){
         University university = new University("UMCS");
@@ -29,7 +25,7 @@ public class Main{
                 
                 if (choice == 0){
                     user = university.logIn(false, password, index, null);
-                    System.out.println(user.get);
+                    System.out.println(user.get());
                 }
                 else if (choice == 1){
                     System.out.println("Choose the department you are in.");
