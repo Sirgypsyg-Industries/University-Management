@@ -24,4 +24,12 @@ public abstract class User {
 		this.password = password;
 		this.index = index;
 	}
+
+	public String getIndex() {
+		return index;
+	}
+
+	public String getPassword() {
+		return password;
+	}
 }

@@ -23,5 +23,6 @@ public class Course {
 		this.password = password;
 		this.name = name;
 		this.professor = professor;
+		materials = new ArrayList<>();
 	}
 }

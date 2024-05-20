@@ -39,6 +39,11 @@ public class University {
 	}
 	
 	public Student getStudent(String index, String password) {
+		for(Student student: students) {
+			if (student.getIndex().equals(index) && student.getPassword().equals(password)) {
+				return student;
+			}
+		}
 		return null;
 	}
 	
