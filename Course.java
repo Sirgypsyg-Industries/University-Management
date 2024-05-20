@@ -19,6 +19,7 @@ public class Course {
 	public Professor professor;
 	public Map<String, Grade> grades;
 	private String password;
+	
 	public Course(String name, Professor professor, String password) {
 		this.password = password;
 		this.name = name;
