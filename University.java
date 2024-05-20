@@ -16,19 +16,20 @@ public class University {
 	public ArrayList<Student> students;
 	public String name;
 	public int index = 1111;
-	public boolean reg(boolean isTeacher, String fullName, String password, Department department) {
+	public User reg(boolean isTeacher, String fullName, String password, Department department) {
 		
+		User user = null;
 		if (isTeacher) {
-			department.addTeacher(fullName, password, Integer.toString(index));
+			user = department.addTeacher(fullName, password, index++);
 		}
 		else {
-			Student student = new Student(fullName, password, Integer.toString(index));
+			Student student = new Student(fullName, password, index++);
 			students.add(student);
+			user = student;
 		}
 
 		System.out.println("User " + fullName + " registered successfully");
-		++index;
-		return true;
+		return user;
 	}
 
 	
@@ -39,30 +40,23 @@ public class University {
 	}
 	
 	public Student getStudent(String index, String password) {
-		for(Student student: students) {
-			if (student.getIndex().equals(index) && student.getPassword().equals(password)) {
-				return student;
-			}
-		}
+		// for(Student student: students) {
+		// 	if (student.getIndex().equals(index) && student.getPassword().equals(password)) {
+		// 		return student;
+		// 	}
+		// }
 		return null;
 	}
 	
 	public University(String name) {
         this.name = name;
         departments = new ArrayList<Department>();
+		students = new ArrayList<Student>();
 
-        // Create Department objects
-        Department department1 = new Department("Mathematics");
-        Department department2 = new Department("Computer Science");
-        Department department3 = new Department("Physics");
-		Department department4 = new Department("Neurobiology");
-		Department department5 = new Department("cosmology");
-
-        // Add Department objects to departments ArrayList
-        departments.add(department1);
-        departments.add(department2);
-        departments.add(department3);
-		departments.add(department4);
-		departments.add(department5);
+		departments.add(new Department("Mathematics"));
+        departments.add(new Department("Computer Science"));
+        departments.add(new Department("Physics"));
+		departments.add(new Department("Neurobiology"));
+		departments.add(new Department("cosmology"));
     }
 }
