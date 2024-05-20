@@ -12,7 +12,7 @@
 import java.util.ArrayList;
 
 public class Student extends User {
-	public Student(String fullName, String password, String index) {
+	public Student(String fullName, String password, int index) {
 		super(fullName, password, index);
 	}
 

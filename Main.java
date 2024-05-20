@@ -5,17 +5,15 @@ public class Main{
     public static void main(String[] args){
         University university = new University("UMCS");
         User user = null;
+        Scanner in = new Scanner(System.in);
+
         while(true){
-            Scanner in = new Scanner(System.in);
-            System.out.println("Choose 0 if you are a student, 1 a teacher");
+            System.out.println("Choose 0 to log as student, 1 to log as teacher, 2 to exit: \n");
             int choice = in.nextInt();
-            in.nextLine();
-            if(choice != 0 && choice != 1){
-                continue;
-            }
-            System.out.println("Do you want to log in or register? 0 for log in, 1 for register, anything else for choosing the user:");
+
+            System.out.println("Do you want to log in or register? 0 for log in, 1 for register: \n");
             int logOrReg = in.nextInt();
-            in.nextLine();
+
             if (logOrReg == 0){
 
                 System.out.println("Enter your index:");
