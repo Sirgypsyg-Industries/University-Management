@@ -15,14 +15,13 @@ public class Department {
 	public ArrayList<Professor> profesors;
 	public String name;
 	public Professor getProfessor(String index, String password) {
-
 		int size = profesors.size();
 		for(int i = 0; i < size; ++i){
-			if(profesors[i].authenticate(password, index) == true){
-				return profesors[i];
+			if(profesors.get(i).authenticate(password, index) == true){
+				return profesors.get(i);
 			}
 		}
-
+		return new Professor(password, password, index, null);	 // placehodler
 	}
 	
 	public Department(String name) {
