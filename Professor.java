@@ -39,7 +39,7 @@ public class Professor extends User {
 		}
 	}
 	
-	public Professor(String fullName, String password, int index, Department department) {
+	public Professor(String fullName, String password, String index, Department department) {
 		super(fullName, password, index);
 		this.department  = department;
 	}

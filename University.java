@@ -30,8 +30,6 @@ public class University {
 		++index;
 		return true;
 	}
-
-	
 	
 	public User logIn(boolean isTeacher, String password, String index, String departmentName) {
 		
