@@ -30,6 +30,6 @@ public class University {
 	}
 	
 	public University(String name) {
-	
+		
 	}
 }
