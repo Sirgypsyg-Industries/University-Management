@@ -10,6 +10,7 @@
 //
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Course {
@@ -24,5 +25,11 @@ public class Course {
 		this.name = name;
 		this.professor = professor;
 		materials = new ArrayList<>();
+		students = new ArrayList<>();
+		grades = new HashMap<String,Grade>();
+	}
+
+	String getPassword(){
+		return password;
 	}
 }
