@@ -22,7 +22,7 @@ public class Department {
 		this.name = name;
 	}
 	
-	public void addTeacher(String fullName, String passwrod, String index) {
+	public void addTeacher(String fullName, String password, String index) {
 	
 	}
 }
