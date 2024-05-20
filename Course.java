@@ -11,7 +11,7 @@
 
 import java.util.ArrayList;
 import java.util.Map;
-//gypsyg v2
+//gypsyg v3
 public class Course {
 	public String name;
 	public ArrayList<String> materials;
