@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main{
     public static void main(String[] args){
         University university = new University("UMCS");
@@ -7,7 +8,6 @@ public class Main{
         Scanner in = new Scanner(System.in);
 
         while(true){
-            Scanner in = new Scanner(System.in);
             System.out.println("Choose 0 to log as student, 1 to log as teacher, 2 to exit: \n");
             int choice = in.nextInt();
 
@@ -23,7 +23,7 @@ public class Main{
                 
                 if (choice == 0){
                     user = university.logIn(false, password, index, null);
-                    System.out.println(user.get);
+                    System.out.println(user.get());
                 }
                 else if (choice == 1){
                     System.out.println("Choose the department you are in.");

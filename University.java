@@ -16,16 +16,14 @@ public class University {
 	public ArrayList<Student> students;
 	public String name;
 	public int index = 1111;
-	public User reg(boolean isTeacher, String fullName, String password, Department department) {
+	public boolean reg(boolean isTeacher, String fullName, String password, Department department) {
 		
-		User user = null;
 		if (isTeacher) {
-			user = department.addTeacher(fullName, password, index++);
+			department.addTeacher(fullName, password, Integer.toString(index));
 		}
 		else {
-			Student student = new Student(fullName, password, index++);
+			Student student = new Student(fullName, password, Integer.toString(index));
 			students.add(student);
-			user = student;
 		}
 
 		System.out.println("User " + fullName + " registered successfully. Your index is " + index);
@@ -41,23 +39,39 @@ public class University {
 	}
 	
 	public Student getStudent(String index, String password) {
-		// for(Student student: students) {
-		// 	if (student.getIndex().equals(index) && student.getPassword().equals(password)) {
-		// 		return student;
-		// 	}
-		// }
+		for(Student student: students) {
+			if (student.getIndex().equals(index) && student.getPassword().equals(password)) {
+				return student;
+			}
+		}
 		return null;
 	}
 	
 	public University(String name) {
         this.name = name;
         departments = new ArrayList<Department>();
-		students = new ArrayList<Student>();
+		students = new ArrayList<>();
 
+<<<<<<< HEAD
 		departments.add(new Department("Mathematics"));
         departments.add(new Department("Computer Science"));
         departments.add(new Department("Physics"));
 		departments.add(new Department("Neurobiology"));
 		departments.add(new Department("Cosmology"));
+=======
+        // Create Department objects
+        Department department1 = new Department("Mathematics");
+        Department department2 = new Department("Computer Science");
+        Department department3 = new Department("Physics");
+		Department department4 = new Department("Neurobiology");
+		Department department5 = new Department("cosmology");
+
+        // Add Department objects to departments ArrayList
+        departments.add(department1);
+        departments.add(department2);
+        departments.add(department3);
+		departments.add(department4);
+		departments.add(department5);
+>>>>>>> 34d839b6d3228f0b0ab2490abf0a1d85b2b71705
     }
 }

@@ -15,17 +15,17 @@
 public abstract class User {
 	private String fullName;
 	private String password;
-	private int index;
+	private String index;
 	public boolean authenticate(String password, String index) {
 		return false;
 	}
-	public User(String fullName, String password, int index){
+	public User(String fullName, String password, String index){
 		this.fullName = fullName;
 		this.password = password;
 		this.index = index;
 	}
 
-	public int getIndex() {
+	public String getIndex() {
 		return index;
 	}
 

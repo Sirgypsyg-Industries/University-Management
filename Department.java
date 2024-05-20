@@ -29,10 +29,8 @@ public class Department {
 		profesors = new ArrayList<Professor>();
 	}
 	
-	public User addTeacher(String fullName, String password, int index) {
+	public void addTeacher(String fullName, String password, String index) {
 		Professor newProfessor = new Professor(fullName, password, index, this);
 		profesors.add(newProfessor);
-
-		return newProfessor;
 	}
 }
