@@ -19,8 +19,25 @@ public class Student extends User {
 	public ArrayList<Course> classes;
 	public University university;
 
-	public void registerOnCourse(String nameOfCourse, String nameOfDepartment, Professor professor, String password) {
-		
+	// Trzeba zmienić w UML w argumentach żeby był Course a w mainie wyświetlić listę najpierw profesorów a potem kursów
+	// Listować profesorów z danego wydziału i potem kursy
+	public void registerOnCourse(Course course, String password) {
+		if (course != null){
+			//sprawdzenie czy nie nie jest już zapisany na taki kurs
+			for (Course courseString: classes) {
+				if (!courseString.name.equals(course.name)) {
+					// jeśli hasło sie zgadza to dodajemy kurs do listy
+					if (course.getPassword().equals(password)) {
+						classes.add(course);
+						System.out.println("Student " + this.getFullName() + " registered on course " + course.name);
+					} else {
+						System.out.println("Wrong password for course " + course.name);
+					}
+				}
+			}
+		} else {
+			System.out.println("Course not found");
+		}
 	}
 	
 	public void viewGrades() {
@@ -28,15 +45,15 @@ public class Student extends User {
 		boolean studentFound = false;
 
 		for (Course course : classes) {
-			Grade grade = course.grades.get(this.getIndex());
-	
+			Grade grade = course.grades.get(Integer.toString(this.getIndex()));
+
 			if (grade != null) {
 				studentFound = true;
 				stringBuilder.append("Course: ").append(course.name)
-							 .append(" - Grade: ").append(grade.name()).append("\n");
+						.append(" - Grade: ").append(grade.name()).append("\n");
 			}
 		}
-	
+
 		if (!studentFound) {
 			stringBuilder.append("No grades found for student ID: ").append(this.getIndex()).append("\n");
 		}

@@ -58,6 +58,6 @@ public class University {
         departments.add(new Department("Computer Science"));
         departments.add(new Department("Physics"));
 		departments.add(new Department("Neurobiology"));
-		departments.add(new Department("cosmology"));
+		departments.add(new Department("Cosmology"));
     }
 }
