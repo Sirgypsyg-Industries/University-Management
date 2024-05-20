@@ -31,4 +31,4 @@ public class Professor extends User {
 		this.department  = department;
 	}
 }
-//glupota
+//studia nie sa obowiazkowe
