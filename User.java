@@ -19,4 +19,9 @@ public abstract class User {
 	public boolean authenticate(String password, String index) {
 		return false;
 	}
+	public User(String fullName, String password, String index){
+		this.fullName = fullName;
+		this.password = password;
+		this.index = index;
+	}
 }
