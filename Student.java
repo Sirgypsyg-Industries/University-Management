@@ -59,4 +59,3 @@ public class Student extends User {
 		}
 	}
 }
-//pozdrwaiam ciebie
