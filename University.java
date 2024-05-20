@@ -26,7 +26,7 @@ public class University {
 			students.add(student);
 		}
 
-		System.out.println("User " + fullName + " registered successfully");
+		System.out.println("User " + fullName + " registered successfully. Your index is " + index);
 		++index;
 		return true;
 	}
@@ -50,6 +50,7 @@ public class University {
 	public University(String name) {
         this.name = name;
         departments = new ArrayList<Department>();
+		students = new ArrayList<>();
 
         // Create Department objects
         Department department1 = new Department("Mathematics");
