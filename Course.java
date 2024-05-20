@@ -11,6 +11,7 @@
 
 import java.util.ArrayList;
 import java.util.Map;
+
 public class Course {
 	public String name;
 	public ArrayList<String> materials;

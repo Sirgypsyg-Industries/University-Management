@@ -15,14 +15,23 @@ public class Department {
 	public ArrayList<Professor> profesors;
 	public String name;
 	public Professor getProfessor(String index, String password) {
-		return null;
+
+		int size = profesors.size();
+		for(int i = 0; i < size; ++i){
+			if(profesors[i].authenticate(password, index) == true){
+				return profesors[i];
+			}
+		}
+
 	}
 	
 	public Department(String name) {
 		this.name = name;
+		profesors = new ArrayList<Professor>();
 	}
 	
 	public void addTeacher(String fullName, String password, String index) {
-	
+		Professor newProfessor = new Professor(fullName, password, index, this);
+		profesors.add(newProfessor);
 	}
 }
