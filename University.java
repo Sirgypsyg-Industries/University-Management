@@ -30,11 +30,17 @@ public class University {
 		++index;
 	}
 
-	
-	
-	public User logIn(boolean isTeacher, String password, String index, String departmentName) {
-		
+	public Professor logInProfessor(String password, String index) {
+		for (Department department: departments) {
+			Professor professor = department.getProfessor(index, password);
+			if (professor != null) {
+				return professor;
+			}
+		}
 		return null;
+	}
+	public Student logInStudent(String password, String index) {
+		return getStudent(index, password);
 	}
 	
 	public Student getStudent(String index, String password) {
