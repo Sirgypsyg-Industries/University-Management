@@ -18,7 +18,7 @@ public class Professor extends User {
 
 	public void addCourse(String name, String password) {
 		for(Course course: courses){
-			if(course.name == name){
+			if(course.name.equals(name)){
 				System.out.println("Such course already exists!");
 				return;
 			}
@@ -65,6 +65,8 @@ public class Professor extends User {
 	public Professor(String fullName, String password, String index, Department department) {
 		super(fullName, password, index);
 		this.department  = department;
+		this.courses = new ArrayList<Course>();
+		this.courses = new ArrayList<>();
 	}
 }
 //studia nie sa obowiazkowe

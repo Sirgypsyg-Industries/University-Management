@@ -104,7 +104,8 @@ public class Main {
                     addMaterial(user);
                     break;
                 case 2:
-                    // Add functionality for writing grade
+                    //TODO Add functionality for writing grade
+                    addGrade(user);
                     break;
                 case 3:
                     user = null;
@@ -115,9 +116,23 @@ public class Main {
 
     private static void studentOperations(Student user) {
         while (true) {
-            System.out.println("Choose 0 to add course, 1 to add material, 2 to write grade, 3 to log out.");
+            System.out.println("Choose 0 to register to course, 1 to view material, 2 to view grade, 3 to log out.");
             int operation = in.nextInt();
             in.nextLine();
+            switch (operation) {
+                case 0:
+                    //TODO Add functionality for registering to course PATRYYYK
+                    break;
+                case 1:
+                    //TODO Add functionality for viewing material
+                    break;
+                case 2:
+                    //TODO Add functionality for viewing grade
+                    break;
+                case 3:
+                    user = null;
+                    return;
+            }
         }
     }
 
@@ -143,5 +158,56 @@ public class Main {
         System.out.println("Give the way to file:");
         String file = in.nextLine();
         user.addMaterials(file, user.courses.get(indexOfCourse));
+    }
+
+    private static void addGrade(Professor user) {
+        if (user.courses.isEmpty()) {
+            System.out.println("You have no added courses!");
+            return;
+        }
+        System.out.println("Choose the course:");
+        for (int i = 0; i < user.courses.size(); ++i) {
+            System.out.println(i + " " + user.courses.get(i).name);
+        }
+        int indexOfCourse = in.nextInt();
+        Course course = user.courses.get(indexOfCourse);
+        
+        System.out.println("Choose the student:");
+        for (int i = 0; i < user.courses.get(indexOfCourse).students.size(); ++i) {
+            System.out.println(i + " " + user.courses.get(indexOfCourse).students.get(i).getFullName());
+        }
+        String indexOfStudent = in.nextLine();
+
+        System.out.println("Write the grade:");
+        Grade grade = Grade.valueOf(in.next());
+
+        user.writeGrade(indexOfStudent, grade, course);
+    }
+
+    private static void registerToCourse(Student user) {
+        // department => professor => course
+        System.out.println("Choose the department:");
+        for (int i = 0; i < university.departments.size(); ++i) {
+            System.out.println(i + " " + university.departments.get(i).name);
+        }
+        int indexOfDepartment = in.nextInt();
+
+        System.out.println("Choose the professor:");
+        for (int i = 0; i < university.departments.get(indexOfDepartment).profesors.size(); ++i) {
+            System.out.println(i + " " + university.departments.get(indexOfDepartment).profesors.get(i).getFullName());
+        }
+        int indexOfProfessor = in.nextInt();
+        Professor professor = university.departments.get(indexOfDepartment).profesors.get(indexOfProfessor);
+
+        int i = 0;
+        for (Course course: professor.courses) {
+            System.out.println(i + ": " + course.name);
+            i++;
+        }
+
+        Course course = professor.courses.get(in.nextInt());
+        System.out.println("Write the password for this course:");
+        String password = in.nextLine();
+        user.registerOnCourse(course, password);
     }
 }
