@@ -32,8 +32,13 @@ public class University {
 
 	
 	
-	public User logIn(boolean isTeacher, String password, String index, String departmentName) {
-		
+	public User logIn(boolean isTeacher, String password, String index, Department department) {	
+		User user = null;
+		if(isTeacher){
+			user = department.getProfessor(index, password);
+		}else{
+			user = getStudent(index, password);
+		}
 		return null;
 	}
 	

@@ -7,22 +7,22 @@ public class Main{
         Scanner in = new Scanner(System.in);
 
         while(true){
-            System.out.println("Choose 0 if you are student, 1 teacher, 2 if you want to exit: \n");
+            System.out.println("Choose 0 if you are student, 1 teacher, 2 if you want to exit:");
             int choice = in.nextInt();
             in.nextLine();
-            boolean logOrReg;
+            int logOrReg;
             if(choice == 0){
                 System.out.println("Choose 0 if you want to login, 1 register:");
-                logOrReg = in.nextBoolean();
+                logOrReg = in.nextInt();
                 in.nextLine();
-                if(logOrReg){
+                if(logOrReg == 0){
                     String password, fullName;
                     System.out.println("Write your full name:");
                     fullName = in.nextLine();
                     System.out.println("Write your password:");
                     password = in.nextLine();
                     university.reg(false, fullName, password, null);
-                }else{
+                }else if(logOrReg == 1){
                     String password, index;
                     System.out.println("Write your index:");
                     index = in.nextLine();
@@ -39,9 +39,9 @@ public class Main{
                 }
             }else if(choice == 1){
                 System.out.println("Choose 0 if you want to login, 1 register:");
-                logOrReg = in.nextBoolean();
+                logOrReg = in.nextInt();
                 in.nextLine();
-                if(logOrReg){
+                if(logOrReg = 0){
                     System.out.println("Choose your department:");
                     for(int i = 0; i < university.departments.size(); ++i){
                         System.out.println(i + " " + university.departments.get(i).name);
