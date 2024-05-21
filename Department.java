@@ -21,7 +21,7 @@ public class Department {
 				return profesors.get(i);
 			}
 		}
-		return null;	 // placehodler
+		return null;
 	}
 	
 	public Department(String name) {

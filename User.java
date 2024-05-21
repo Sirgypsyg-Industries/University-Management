@@ -17,6 +17,8 @@ public abstract class User {
 	private String password;
 	private String index;
 	public boolean authenticate(String password, String index) {
+		if(this.index == index && this.password == password)
+			return true;
 		return false;
 	}
 	public User(String fullName, String password, String index){
@@ -29,11 +31,11 @@ public abstract class User {
 		return index;
 	}
 
-	public String getPassword() {
+	public String getPassword(){
 		return password;
 	}
 
 	public String getFullName(){
 		return fullName;
 	}
-}//comment
+}

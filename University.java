@@ -16,7 +16,7 @@ public class University {
 	public ArrayList<Student> students;
 	public String name;
 	public int index = 1111;
-	public boolean reg(boolean isTeacher, String fullName, String password, Department department) {
+	public void reg(boolean isTeacher, String fullName, String password, Department department) {
 		
 		if (isTeacher) {
 			department.addTeacher(fullName, password, Integer.toString(index));
@@ -26,16 +26,18 @@ public class University {
 			students.add(student);
 		}
 
-		System.out.println("User " + fullName + " registered successfully. Your index is " + index);
+		System.out.println("User " + fullName + " registered successfully. Your index is " + index + ". Remember it!");
 		++index;
-		return true;
 	}
-
 	
-	
-	public User logIn(boolean isTeacher, String password, String index, String departmentName) {
-		
-		return null;
+	public User logIn(boolean isTeacher, String password, String index, Department department) {
+		User user = null;
+		if(isTeacher){
+			user = department.getProfessor(index, password);
+		}else{
+			user = getStudent(index, password);
+		}
+		return user;
 	}
 	
 	public Student getStudent(String index, String password) {
@@ -52,26 +54,10 @@ public class University {
         departments = new ArrayList<Department>();
 		students = new ArrayList<>();
 
-<<<<<<< HEAD
 		departments.add(new Department("Mathematics"));
         departments.add(new Department("Computer Science"));
         departments.add(new Department("Physics"));
 		departments.add(new Department("Neurobiology"));
 		departments.add(new Department("Cosmology"));
-=======
-        // Create Department objects
-        Department department1 = new Department("Mathematics");
-        Department department2 = new Department("Computer Science");
-        Department department3 = new Department("Physics");
-		Department department4 = new Department("Neurobiology");
-		Department department5 = new Department("cosmology");
-
-        // Add Department objects to departments ArrayList
-        departments.add(department1);
-        departments.add(department2);
-        departments.add(department3);
-		departments.add(department4);
-		departments.add(department5);
->>>>>>> 34d839b6d3228f0b0ab2490abf0a1d85b2b71705
     }
 }

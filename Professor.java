@@ -10,36 +10,59 @@
 //
 
 import java.util.ArrayList;
+import java.io.File;
 
 public class Professor extends User {
 	public ArrayList<Course> courses;
 	public Department department;
 
 	public void addCourse(String name, String password) {
-		Course newCourse = new Course(name, this, password);
+		for(Course course: courses){
+			if(course.name == name){
+				System.out.println("Such course already exists!");
+				return;
+			}
+		}
+		Course newCourse = new Course(name, password, this);
 		courses.add(newCourse);
 	}
 	
-	public void addMaterials(String nameOfFile, String nameOfCourse) {
-		int size = courses.size();
-		for(int i = 0; i < size; ++i){
-			if(courses.get(i).name == nameOfCourse){
-				courses.get(i).materials.add(nameOfFile);
+	public void addMaterials(String nameOfFile, Course course) {
+		File file = new File(nameOfFile);
+        boolean exists = file.exists();
+        
+        if (!exists) {
+            System.out.println("Such file does not exist.");
+        }
+		for(String tmp: course.materials){
+			if(tmp == nameOfFile){
+				System.out.println("Such file already exists!");
 				return;
 			}
 		}
+		course.materials.add(nameOfFile);
 	}
 	
-	public void writeGrade(String index, Grade grade, String nameOfCourse) {
-		for(int i = 0; i < courses.size(); ++i){
-			if(courses.get(i).name == nameOfCourse){
-				courses.get(i).grades.put(index, grade);
-				return;
+	public void writeGrade(String index, Grade grade, Course course) {
+		if(!courses.contains(course)){
+			System.out.println("Professor doesn't have such course!");
+			return;
+		}
+		boolean isStudentRegistered = false;
+		for(Student student: course.students){
+			if(student.getIndex() == index){
+				isStudentRegistered = true;
+				break;
 			}
+		}
+		if(isStudentRegistered){
+			course.grades.put(index, grade);
+		}else{
+			System.out.println("Such student isn't registered on this course!");
 		}
 	}
 	
-	public Professor(String fullName, String password, int index, Department department) {
+	public Professor(String fullName, String password, String index, Department department) {
 		super(fullName, password, index);
 		this.department  = department;
 	}

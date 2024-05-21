@@ -9,7 +9,10 @@
 //
 //
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.awt.Desktop;
 
 public class Student extends User {
 	public Student(String fullName, String password, String index) {
@@ -22,7 +25,6 @@ public class Student extends User {
 	// Trzeba zmienić w UML w argumentach żeby był Course a w mainie wyświetlić listę najpierw profesorów a potem kursów
 	// Listować profesorów z danego wydziału i potem kursy
 	public void registerOnCourse(Course course, String password) {
-		if (course != null){
 			//sprawdzenie czy nie nie jest już zapisany na taki kurs
 			for (Course courseString: classes) {
 				if (!courseString.name.equals(course.name)) {
@@ -35,9 +37,6 @@ public class Student extends User {
 					}
 				}
 			}
-		} else {
-			System.out.println("Course not found");
-		}
 	}
 	
 	public void viewGrades() {
@@ -60,19 +59,34 @@ public class Student extends User {
 		System.out.println(stringBuilder.toString());
 	}
 	
-	public void viewMaterial(String course, String nameOfFile) {
-		for (Course courseString: classes) {
-			if (courseString.name.equals(course)) {
-				for (String materialName: courseString.materials) {
-					if (materialName.equals(nameOfFile)) {
-						System.out.println(materialName.toString());
-					} else {
-						System.out.println("Name of this file cannot be found.");
-					}
-				}
-			} else {
-				System.out.println("Course not found.");
-			}
+	public void viewMaterial(Course course, String nameOfFile) {
+		if(classes.contains(course) == false){
+			System.out.println("Student isn't registered on such course!");
 		}
+			if (course.materials.contains(nameOfFile) == false){
+				System.out.println("There is no such file");
+			}
+			else {
+				File file = new File(nameOfFile);
+
+        
+        		if (!Desktop.isDesktopSupported()) {
+         	   		System.err.println("Desktop is not supported on this system.");
+          	  		return;
+      	    	}
+
+       			Desktop desktop = Desktop.getDesktop();
+
+        		try {
+            
+            		if (file.exists()) {
+                		desktop.open(file);
+            		} else {
+               			System.err.println("File does not exist: " + nameOfFile);
+            		}
+        		} catch (IOException e) {
+            		System.err.println("An error occurred while opening the file: " + e.getMessage());
+        		}
+			}
 	}
 }
