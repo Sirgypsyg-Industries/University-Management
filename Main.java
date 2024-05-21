@@ -176,12 +176,11 @@ public class Main {
         for (int i = 0; i < user.courses.get(indexOfCourse).students.size(); ++i) {
             System.out.println(i + " " + user.courses.get(indexOfCourse).students.get(i).getFullName());
         }
-        int indexOfStudent = in.nextInt();
-        Student student = user.courses.get(indexOfCourse).students.get(indexOfStudent);
+        String indexOfStudent = in.nextLine();
 
         System.out.println("Write the grade:");
         Grade grade = Grade.valueOf(in.next());
 
-        user.writeGrade(null, grade, null);
+        user.writeGrade(indexOfStudent, grade, course);
     }
 }
