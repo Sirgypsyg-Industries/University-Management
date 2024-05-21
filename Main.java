@@ -104,7 +104,7 @@ public class Main {
                     addMaterial(user);
                     break;
                 case 2:
-                    // Add functionality for writing grade
+                    //TODO Add functionality for writing grade
                     addGrade(user);
                     break;
                 case 3:
