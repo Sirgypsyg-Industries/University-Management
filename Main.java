@@ -121,7 +121,7 @@ public class Main {
             in.nextLine();
             switch (operation) {
                 case 0:
-                    //TODO Add functionality for registering to course
+                    //TODO Add functionality for registering to course PATRYYYK
                     break;
                 case 1:
                     //TODO Add functionality for viewing material
