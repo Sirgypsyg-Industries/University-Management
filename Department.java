@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Department {
 	public ArrayList<Professor> profesors;
 	public String name;
+	
 	public Professor getProfessor(String index, String password) {
 		int size = profesors.size();
 		for(int i = 0; i < size; ++i){
@@ -28,9 +29,13 @@ public class Department {
 		this.name = name;
 		profesors = new ArrayList<Professor>();
 	}
+
+	public String getName() {
+		return name;
+	}
 	
 	public void addTeacher(String fullName, String password, String index) {
-		Professor newProfessor = new Professor(fullName, password, index, this);
-		profesors.add(newProfessor);
+		profesors.add(new Professor(fullName, password, index, this));
 	}
+
 }

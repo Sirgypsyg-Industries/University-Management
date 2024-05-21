@@ -17,7 +17,7 @@ public abstract class User {
 	private String password;
 	private String index;
 	public boolean authenticate(String password, String index) {
-		if(this.index == index && this.password == password)
+		if(this.index.equals(index) && this.password.equals(password))
 			return true;
 		return false;
 	}
