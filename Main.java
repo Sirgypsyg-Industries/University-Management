@@ -122,6 +122,7 @@ public class Main {
             switch (operation) {
                 case 0:
                     //TODO Add functionality for registering to course PATRYYYK
+                    registerToCourse(user);
                     break;
                 case 1:
                     //TODO Add functionality for viewing material
@@ -164,6 +165,31 @@ public class Main {
         if (user.courses.isEmpty()) {
             System.out.println("You have no added courses!");
             return;
+        }
+        boolean areMoreStudents = true;
+        while(areMoreStudents) {
+            System.out.println("Choose the course:");
+            for (int i = 0; i < user.courses.size(); ++i) {
+                System.out.println(i + " " + user.courses.get(i).name);
+            }
+            int indexOfCourse = in.nextInt();
+            Course course = user.courses.get(indexOfCourse);
+            
+            System.out.println("Choose the student:");
+            for (int i = 0; i < user.courses.get(indexOfCourse).students.size(); ++i) {
+                System.out.println(i + " " + user.courses.get(indexOfCourse).students.get(i).getFullName());
+            }
+            String indexOfStudent = in.nextLine();
+
+            System.out.println("Write the grade:");
+            Grade grade = Grade.valueOf(in.next());
+
+            user.writeGrade(indexOfStudent, grade, course);
+            System.out.println("Do you want to add more grades? (yes/no)");
+            String answer = in.nextLine();
+            if (answer.equals("no")) {
+                areMoreStudents = false;
+            }
         }
         System.out.println("Choose the course:");
         for (int i = 0; i < user.courses.size(); ++i) {
