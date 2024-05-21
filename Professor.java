@@ -65,6 +65,7 @@ public class Professor extends User {
 	public Professor(String fullName, String password, String index, Department department) {
 		super(fullName, password, index);
 		this.department  = department;
+		this.courses = new ArrayList<>();
 	}
 }
 //studia nie sa obowiazkowe

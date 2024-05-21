@@ -105,6 +105,7 @@ public class Main {
                     break;
                 case 2:
                     // Add functionality for writing grade
+                    addGrade(user);
                     break;
                 case 3:
                     user = null;
@@ -115,9 +116,23 @@ public class Main {
 
     private static void studentOperations(Student user) {
         while (true) {
-            System.out.println("Choose 0 to add course, 1 to add material, 2 to write grade, 3 to log out.");
+            System.out.println("Choose 0 to register to course, 1 to view material, 2 to view grade, 3 to log out.");
             int operation = in.nextInt();
             in.nextLine();
+            switch (operation) {
+                case 0:
+                    //TODO Add functionality for registering to course
+                    break;
+                case 1:
+                    //TODO Add functionality for viewing material
+                    break;
+                case 2:
+                    //TODO Add functionality for viewing grade
+                    break;
+                case 3:
+                    user = null;
+                    return;
+            }
         }
     }
 
@@ -143,5 +158,13 @@ public class Main {
         System.out.println("Give the way to file:");
         String file = in.nextLine();
         user.addMaterials(file, user.courses.get(indexOfCourse));
+    }
+
+    private static void addGrade(Professor user) {
+        System.out.println("Write student's index: ");
+        String studentIndex = in.nextLine();
+
+        System.out.println("Write grade: ");
+        Grade grade = Grade.valueOf(in.nextLine());
     }
 }
