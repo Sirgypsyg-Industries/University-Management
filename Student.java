@@ -24,10 +24,10 @@ public class Student extends User {
 
 
 	public void registerOnCourse(Course course, String password) {
-			if(classes.contains(course)){
+			/*if(classes.contains(course)){
 				System.out.println("You are already registered on this course!");
-			};
-				if (!courseString.name.equals(course.name)) {
+			}*/
+				if (!course.name.equals(course.name)) {
 					// jeśli hasło sie zgadza to dodajemy kurs do listy
 					if (course.getPassword().equals(password)) {
 						classes.add(course);

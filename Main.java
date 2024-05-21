@@ -175,12 +175,14 @@ public class Main {
             int indexOfCourse = in.nextInt();
             Course course = user.courses.get(indexOfCourse);
             
+            //TODO nie wyswietla studentow albo nie zapisuje w registerToCourse
             System.out.println("Choose the student:");
             for (int i = 0; i < user.courses.get(indexOfCourse).students.size(); ++i) {
                 System.out.println(i + " " + user.courses.get(indexOfCourse).students.get(i).getFullName());
             }
             String indexOfStudent = in.nextLine();
-
+            
+            //TODO nie dziala
             System.out.println("Write the grade:");
             Grade grade = Grade.valueOf(in.next());
 
@@ -233,7 +235,7 @@ public class Main {
 
         Course course = professor.courses.get(in.nextInt());
         System.out.println("Write the password for this course:");
-        String password = in.nextLine();
+        String password = in.next();
         user.registerOnCourse(course, password);
     }
 }
