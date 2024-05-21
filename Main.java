@@ -104,7 +104,7 @@ public class Main {
                     addMaterial(user);
                     break;
                 case 2:
-                    // Add functionality for writing grade PATRYK
+                    // Add functionality for writing grade
                     addGrade(user);
                     break;
                 case 3:
@@ -121,7 +121,7 @@ public class Main {
             in.nextLine();
             switch (operation) {
                 case 0:
-                    //TODO Add functionality for registering to course PATRYK
+                    //TODO Add functionality for registering to course
                     break;
                 case 1:
                     //TODO Add functionality for viewing material
@@ -161,10 +161,27 @@ public class Main {
     }
 
     private static void addGrade(Professor user) {
-        System.out.println("Write student's index: ");
-        String studentIndex = in.nextLine();
+        if (user.courses.isEmpty()) {
+            System.out.println("You have no added courses!");
+            return;
+        }
+        System.out.println("Choose the course:");
+        for (int i = 0; i < user.courses.size(); ++i) {
+            System.out.println(i + " " + user.courses.get(i).name);
+        }
+        int indexOfCourse = in.nextInt();
+        Course course = user.courses.get(indexOfCourse);
+        
+        System.out.println("Choose the student:");
+        for (int i = 0; i < user.courses.get(indexOfCourse).students.size(); ++i) {
+            System.out.println(i + " " + user.courses.get(indexOfCourse).students.get(i).getFullName());
+        }
+        int indexOfStudent = in.nextInt();
+        Student student = user.courses.get(indexOfCourse).students.get(indexOfStudent);
 
-        System.out.println("Write grade: ");
-        Grade grade = Grade.valueOf(in.nextLine());
+        System.out.println("Write the grade:");
+        Grade grade = Grade.valueOf(in.next());
+
+        user.writeGrade(null, grade, null);
     }
 }
