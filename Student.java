@@ -22,11 +22,11 @@ public class Student extends User {
 	public ArrayList<Course> classes;
 	public University university;
 
-	// Trzeba zmienić w UML w argumentach żeby był Course a w mainie wyświetlić listę najpierw profesorów a potem kursów
-	// Listować profesorów z danego wydziału i potem kursy
+
 	public void registerOnCourse(Course course, String password) {
-			//sprawdzenie czy nie nie jest już zapisany na taki kurs
-			for (Course courseString: classes) {
+			if(classes.contains(course)){
+				System.out.println("You are already registered on this course!");
+			};
 				if (!courseString.name.equals(course.name)) {
 					// jeśli hasło sie zgadza to dodajemy kurs do listy
 					if (course.getPassword().equals(password)) {
@@ -36,7 +36,7 @@ public class Student extends User {
 						System.out.println("Wrong password for course " + course.name);
 					}
 				}
-			}
+			
 	}
 	
 	public void viewGrades() {
@@ -78,7 +78,6 @@ public class Student extends User {
        			Desktop desktop = Desktop.getDesktop();
 
         		try {
-            
             		if (file.exists()) {
                 		desktop.open(file);
             		} else {
