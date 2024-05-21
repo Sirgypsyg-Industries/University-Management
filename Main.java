@@ -104,7 +104,7 @@ public class Main {
                     addMaterial(user);
                     break;
                 case 2:
-                    // Add functionality for writing grade
+                    // Add functionality for writing grade PATRYK
                     addGrade(user);
                     break;
                 case 3:
@@ -121,7 +121,7 @@ public class Main {
             in.nextLine();
             switch (operation) {
                 case 0:
-                    //TODO Add functionality for registering to course
+                    //TODO Add functionality for registering to course PATRYK
                     break;
                 case 1:
                     //TODO Add functionality for viewing material
