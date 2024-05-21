@@ -29,15 +29,12 @@ public class University {
 		System.out.println("User " + fullName + " registered successfully. Your index is " + index + ". Remember it!");
 		++index;
 	}
+
 	
-	public User logIn(boolean isTeacher, String password, String index, Department department) {
-		User user = null;
-		if(isTeacher){
-			user = department.getProfessor(index, password);
-		}else{
-			user = getStudent(index, password);
-		}
-		return user;
+	
+	public User logIn(boolean isTeacher, String password, String index, String departmentName) {
+		
+		return null;
 	}
 	
 	public Student getStudent(String index, String password) {
