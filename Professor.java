@@ -66,6 +66,7 @@ public class Professor extends User {
 		super(fullName, password, index);
 		this.department  = department;
 		this.courses = new ArrayList<Course>();
+		this.courses = new ArrayList<>();
 	}
 }
 //studia nie sa obowiazkowe
