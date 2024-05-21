@@ -183,4 +183,31 @@ public class Main {
 
         user.writeGrade(indexOfStudent, grade, course);
     }
+
+    private static void registerToCourse(Student user) {
+        // department => professor => course
+        System.out.println("Choose the department:");
+        for (int i = 0; i < university.departments.size(); ++i) {
+            System.out.println(i + " " + university.departments.get(i).name);
+        }
+        int indexOfDepartment = in.nextInt();
+
+        System.out.println("Choose the professor:");
+        for (int i = 0; i < university.departments.get(indexOfDepartment).profesors.size(); ++i) {
+            System.out.println(i + " " + university.departments.get(indexOfDepartment).profesors.get(i).getFullName());
+        }
+        int indexOfProfessor = in.nextInt();
+        Professor professor = university.departments.get(indexOfDepartment).profesors.get(indexOfProfessor);
+
+        int i = 0;
+        for (Course course: professor.courses) {
+            System.out.println(i + ": " + course.name);
+            i++;
+        }
+
+        Course course = professor.courses.get(in.nextInt());
+        System.out.println("Write the password for this course:");
+        String password = in.nextLine();
+        user.registerOnCourse(course, password);
+    }
 }
