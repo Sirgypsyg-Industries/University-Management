@@ -1,0 +1,5 @@
+Algorithms you need to know:
+BFS
+DFS
+Dijkstra
+Graham
