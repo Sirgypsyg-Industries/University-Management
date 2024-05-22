@@ -34,13 +34,7 @@ public class Professor extends User {
         if (!exists) {
             return "Such file does not exist.";
         }
-		for(String tmp: course.materials){
-			if(tmp == nameOfFile){
-				return "Such file already exists!";
-			}
-		}
-		course.materials.add(nameOfFile);
-		return "File was added";
+		return course.addMaterial(nameOfFile);
 	}
 	
 	public String writeGrade(int index, Grade grade, Course course) {
