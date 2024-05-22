@@ -23,6 +23,7 @@ public class Student extends User {
 		}
 		if (course.getPassword().equals(password)) {
 			courses.add(course);
+			course.students.add(this);
 			return "Student " + this.getFullName() + " registered on course " + course.name;
 		} else {
 			return "Wrong password for course " + course.name;
@@ -59,7 +60,6 @@ public class Student extends User {
 			}
 			else {
 				File file = new File(nameOfFile);
-
         
         		if (!Desktop.isDesktopSupported()) {
 					message = "Desktop is not supported on this system.";
