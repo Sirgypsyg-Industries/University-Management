@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class Course {
 	public String name;
-	public ArrayList<String> materials;
+	private ArrayList<String> materials;
 	public ArrayList<Student> students;
 	public Professor professor;
 	public Map<Integer, Grade> grades;
@@ -28,6 +28,16 @@ public class Course {
 		materials = new ArrayList<>();
 		students = new ArrayList<>();
 		grades = new HashMap<Integer, Grade>();
+	}
+
+	public String addMaterial(String file){
+		for(String tmp: materials){
+			if(tmp.equals(file)){
+				return "Such file already exists!";
+			}
+		}
+		materials.add(file);
+		return "File was added";
 	}
 	
 	public String getPassword(){
