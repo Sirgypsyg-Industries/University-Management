@@ -30,30 +30,20 @@ public class Professor extends User {
 	public String addMaterials(String nameOfFile, Course course) {
 		File file = new File(nameOfFile);
         boolean exists = file.exists();
-        
+		if(courses.contains(course) == false){
+			return "Such a course does not belongs to professor!";
+		}
         if (!exists) {
             return "Such file does not exist.";
         }
-		return course.addMaterial(nameOfFile);
+		return course.addMaterialToCourse(nameOfFile);
 	}
 	
 	public String writeGrade(int index, Grade grade, Course course) {
 		if(!courses.contains(course)){
 			return "Professor doesn't have such course!";
 		}
-		boolean isStudentRegistered = false;
-		for(Student student: course.students){
-			if(student.getIndex() == index){
-				isStudentRegistered = true;
-				break;
-			}
-		}
-		if(isStudentRegistered){
-			course.grades.put(index, grade);
-			return "Grade was added";
-		}else{
-			return "Such student isn't registered on this course!";
-		}
+		return course.addGradeToStudent(index, grade);
 	}
 	
 	public Professor(String fullName, String password, int index, Department department) {

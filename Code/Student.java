@@ -9,14 +9,13 @@
 //
 //
 
-import java.io.File;
-import java.io.IOException;
+
 import java.util.ArrayList;
-import java.awt.Desktop;
 
 public class Student extends User {
 	public ArrayList<Course> courses;
 	public University university;
+
 	public String registerOnCourse(Course course, String password) {
 		if(courses.contains(course)){
 				return "You are already registered on this course!";
@@ -29,13 +28,13 @@ public class Student extends User {
 			return "Wrong password for course " + course.name;
 		}
 	}
-	
+	 
 	public String viewGrades() {
 		StringBuilder stringBuilder = new StringBuilder();
 		boolean studentFound = false;
-
+		int index = this.getIndex();
 		for (Course course : courses) {
-			Grade grade = course.grades.get(this.getIndex());
+			Grade grade = course.getGrade(index);
 
 			if (grade != null) {
 				studentFound = true;
@@ -54,30 +53,7 @@ public class Student extends User {
 		if(courses.contains(course) == false){
 			return "Student isn't registered on such course!";
 		}
-		String message = null;
-			if (course.materials.contains(nameOfFile) == false){
-				message =  "There is no such file";
-			}
-			else {
-				File file = new File(nameOfFile);
-        
-        		if (!Desktop.isDesktopSupported()) {
-					message = "Desktop is not supported on this system.";
-      	    	}
-
-       			Desktop desktop = Desktop.getDesktop();
-
-        		try {
-            		if (file.exists()) {
-                		desktop.open(file);
-            		} else {
-						message = "File does not exist: ";
-            		}
-        		} catch (IOException e) {
-            		message = "An error occurred while opening the file: " + e.getMessage();
-        		}
-			}
-			return message;
+		return course.openFile(nameOfFile);
 	}
 	
 	public Student(String fullName, String password, int index, University university) {

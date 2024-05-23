@@ -317,17 +317,17 @@ public class Main {
             in.nextLine();
 
             Course course = user.courses.get(indexOfCourse);
-            if (course.materials.isEmpty()) {
+            if (course.getMaterials().isEmpty()) {
                 System.out.println("There are no materials for this course.");
                 return;
             }
             System.out.println("Choose material you want to see:");
-            for (int i = 0; i < course.materials.size(); ++i) {
-                System.out.println(i + " " + course.materials.get(i));
+            for (int i = 0; i < course.getMaterials().size(); ++i) {
+                System.out.println(i + " " + course.getMaterials().get(i));
             }
             int indexOfMaterial = in.nextInt();
             in.nextLine();
-            user.viewMaterial(course, course.materials.get(indexOfMaterial));
+            user.viewMaterial(course, course.getMaterials().get(indexOfMaterial));
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
             in.nextLine();

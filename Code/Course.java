@@ -9,16 +9,19 @@
 //
 //
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.awt.Desktop;
 
 public class Course {
 	public String name;
 	private ArrayList<String> materials;
 	public ArrayList<Student> students;
 	public Professor professor;
-	public Map<Integer, Grade> grades;
+	private Map<Integer, Grade> grades;
 	private String password;
 
 	public Course(String name, Professor professor, String password) {
@@ -29,18 +32,70 @@ public class Course {
 		students = new ArrayList<>();
 		grades = new HashMap<Integer, Grade>();
 	}
-
-	public String addMaterial(String file){
-		for(String tmp: materials){
-			if(tmp.equals(file)){
-				return "Such file already exists!";
-			}
-		}
-		materials.add(file);
-		return "File was added";
-	}
 	
 	public String getPassword(){
 		return password;
 	}
+
+	public String addMaterialToCourse(String file) {
+        for (String tmp : materials) {
+            if (tmp.equals(file)) {
+                return "Such file already was added!";
+            }
+        }
+        materials.add(file);
+        return "File was added";
+    }
+
+    public ArrayList<String> getMaterials() {
+        return materials;
+    }
+
+    public String addGradeToStudent(int index, Grade grade) {
+        boolean isStudentRegistered = false;
+		for(Student student: students){
+			if(student.getIndex() == index){
+				isStudentRegistered = true;
+				break;
+			}
+		}
+		if(isStudentRegistered){
+			grades.put(index, grade);
+			return "Grade was added";
+		}else{
+			return "Such student isn't registered on this course!";
+		}
+    }
+
+    public Grade getGrade(int index) {
+        return grades.get(index);
+    }
+
+	public String openFile(String nameOfFile){
+		String message = null;
+			if (materials.contains(nameOfFile) == false){
+				message =  "There is no such file";
+			}
+			else {
+				File file = new File(nameOfFile);
+        
+        		if (!Desktop.isDesktopSupported()) {
+					message = "Desktop is not supported on this system.";
+      	    	}
+
+       			Desktop desktop = Desktop.getDesktop();
+
+        		try {
+            		if (file.exists()) {
+                		desktop.open(file);
+            		} else {
+						message = "File does not exist: ";
+            		}
+        		} catch (IOException e) {
+            		message = "An error occurred while opening the file: " + e.getMessage();
+        		}
+			}
+			return message;
+	}
+	
 }

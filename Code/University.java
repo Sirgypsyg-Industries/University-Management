@@ -15,7 +15,7 @@ public class University {
 	public ArrayList<Department> departments;
 	public ArrayList<Student> students;
 	public String name;
-	public int indexGenerator;
+	private int indexGenerator;
 
 	public String regStudent(String fullName, String password) {
 		Student student = new Student(fullName, password, indexGenerator, this);
