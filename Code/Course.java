@@ -30,13 +30,13 @@ public class Course {
 		grades = new HashMap<Integer, Grade>();
 	}
 
-	public String addMaterial(String string){
+	public String addMaterial(String file){
 		for(String tmp: materials){
-			if(tmp.equals(string)){
+			if(tmp.equals(file)){
 				return "Such file already exists!";
 			}
 		}
-		materials.add(string);
+		materials.add(file);
 		return "File was added";
 	}
 	
