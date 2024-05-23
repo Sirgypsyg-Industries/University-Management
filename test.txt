@@ -1,1 +1,41 @@
-Test
+Pierwsze dane testowe:
+1
+0
+1111
+anf,123#5%
+1
+1
+1
+Jakub Obara
+13243546
+1
+0
+1234
+13243546
+0
+Algorytmy
+donaldknuth
+1
+0
+algorithms.txt
+3
+0
+1
+Ivan Verbovetskyi
+qwerty123
+0
+0
+1235
+qwerty123
+0
+1
+0
+0
+donaldknuth
+1
+0
+0
+3
+3
+
+Drugie dane testowe:

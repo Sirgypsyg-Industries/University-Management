@@ -26,7 +26,7 @@ public class Main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
-                in.nextLine(); // Clear the invalid input
+                in.nextLine(); 
             }
         }
     }
@@ -43,7 +43,7 @@ public class Main {
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-            in.nextLine(); // Clear the invalid input
+            in.nextLine(); 
         }
     }
 
@@ -64,13 +64,14 @@ public class Main {
             String password = in.nextLine();
             Student user = university.logInStudent(index, password);
             if (user != null) {
+                System.out.println("Logged in successfully");
                 studentOperations(user);
             } else {
                 System.out.println("User with such index doesn't exist or password is wrong.");
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-            in.nextLine(); // Clear the invalid input
+            in.nextLine(); 
         }
     }
 
@@ -86,7 +87,7 @@ public class Main {
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-            in.nextLine(); // Clear the invalid input
+            in.nextLine();
         }
     }
 
@@ -106,7 +107,7 @@ public class Main {
             System.out.println(university.regProfessor(fullName, password, tmp));
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-            in.nextLine(); // Clear the invalid input
+            in.nextLine();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Invalid department number. Please try again.");
         }
@@ -121,14 +122,14 @@ public class Main {
             String password = in.nextLine();
             Professor user = university.logInProfessor(index, password);
             if (user != null) {
-                System.out.println("Logged in successfully \n");
+                System.out.println("Logged in successfully");
                 professorOperations(user);
             } else {
                 System.out.println("User with such index doesn't exist or password is wrong.");
             }
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-            in.nextLine(); // Clear the invalid input
+            in.nextLine(); 
         }
     }
 
@@ -154,7 +155,7 @@ public class Main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
-                in.nextLine(); // Clear the invalid input
+                in.nextLine();
             }
         }
     }
@@ -181,7 +182,7 @@ public class Main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
-                in.nextLine(); // Clear the invalid input
+                in.nextLine();
             }
         }
     }
@@ -211,7 +212,7 @@ public class Main {
             System.out.println(user.addMaterials(file, user.courses.get(indexOfCourse)));
         } catch (InputMismatchException e) {
             System.out.println("Invalid input. Please enter a number.");
-            in.nextLine(); // Clear the invalid input
+            in.nextLine(); 
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Invalid course number. Please try again.");
         }
@@ -320,6 +321,7 @@ public class Main {
                 System.out.println("There are no materials for this course.");
                 return;
             }
+            System.out.println("Choose material you want to see:");
             for (int i = 0; i < course.materials.size(); ++i) {
                 System.out.println(i + " " + course.materials.get(i));
             }
