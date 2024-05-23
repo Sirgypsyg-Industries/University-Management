@@ -1,4 +1,4 @@
-Pierwsze dane testowe:
+Pierwsze dane testowe sprawdzające rejestracje i logowanie studenta z profesorem, dodawanie materiałów ta ich przeglądanie:
 1
 0
 1111
@@ -38,4 +38,94 @@ donaldknuth
 3
 3
 
-Drugie dane testowe:
+Drugie dane testowe sprawdzające rejestracje i logowanie studenta z profesorem, wpisywanie ocen i przeglądanie ocen studentem:
+1
+1
+2
+Jan Nowak
+11111111
+1
+0
+1234
+11111111
+0
+Advanced Mathematics
+math0000
+3
+0
+1
+Ivan Verbovetskyi
+13243546
+0
+0
+1235
+13243546
+0
+2
+0
+0
+math0000
+3
+0
+1
+Jakub Obara
+student123
+0
+0
+1236
+student123
+0
+2
+0
+0
+math0000
+3
+1
+0
+1234
+11111111
+2
+0
+0
+Four
+yes
+0
+1
+Three
+no
+3
+0
+0
+1235          
+13243546
+2
+3
+3
+
+Trzecie dane testowe sprawdzające czy system ma odporność na błędne dane i złą kolejność operacji:
+asd
+1
+1
+5
+1
+1
+4
+Ivan Verbovetskyi
+13243546
+1
+0
+1234
+12345678
+1
+0
+1234
+13243546
+1
+0
+Physics
+phys1234
+1
+0
+nonexisting.file
+3
+3
